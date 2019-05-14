@@ -1,0 +1,14 @@
+<%= form_with scope: :ranger, url: rangers_path, local: true do |form| %>
+  <% if @park_id.nil? %>
+     <%= form.collection_select :park_id, @parks, :id, :name %>
+  <% else %>
+    <%= form.hidden_field :park_id, :value => @park_id %> 
+  <% end %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
